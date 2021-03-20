@@ -1,8 +1,8 @@
 {
 	"name": "react-component-generator",
-	"displayName": "react-component-generator",
-	"description": "",
-	"version": "0.0.1",
+	"displayName": "React file generator",
+	"description": "React Component generator from explorer context menu",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -10,6 +10,9 @@
 	"categories": [
 		"Other"
 	],
+	"repository": {
+		"url": "https://github.com/anthonyjeamme/react-component-generator.git"
+	},
 	"activationEvents": [
 		"onCommand:react-component-generator.quick-generate",
 		"onCommand:react-component-generator.custom-generate"
@@ -19,10 +22,6 @@
 		"commands": [
 			{
 				"command": "react-component-generator.quick-generate",
-				"title": "⚙️ Generate Component (quick)"
-			},
-			{
-				"command": "react-component-generator.custom-generate",
 				"title": "⚙️ Generate Component"
 			}
 		],
@@ -32,15 +31,11 @@
 					"when": "explorerResourceIsFolder",
 					"command": "react-component-generator.quick-generate",
 					"group": "custom"
-				},
-				{
-					"when": "explorerResourceIsFolder",
-					"command": "react-component-generator.custom-generate",
-					"group": "custom"
 				}
 			]
 		}
 	},
+	"icon": "images/box.png",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
