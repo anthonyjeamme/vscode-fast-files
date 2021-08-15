@@ -22,11 +22,11 @@
 		"commands": [
 			{
 				"command": "fast-files.quick-generate",
-				"title": "⚡ Generate from default template"
+				"title": "⚡ Generate from DEFAULT template"
 			},
 			{
 				"command": "fast-files.custom-generate",
-				"title": "⚙️ Generate files from template"
+				"title": "⚡ Generate from template"
 			}
 		],
 		"menus": {
