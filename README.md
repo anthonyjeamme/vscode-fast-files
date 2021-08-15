@@ -1,10 +1,8 @@
-# react-component-generator README
+# Installation
 
-## How to install ?
+Look for "fast-files" in vscode marketplace
 
-    npm install -g vsce
-    vsce package
+# To test locally
 
-Then, you generated a .vsix file. Go to VSCode extension tab, menu, "Install from VSIX".
-
-Enjoy
+npm install -g vsce
+vsce package

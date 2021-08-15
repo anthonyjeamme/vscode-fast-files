@@ -11,21 +11,21 @@
 		"Other"
 	],
 	"repository": {
-		"url": "https://github.com/anthonyjeamme/react-component-generator.git"
+		"url": "https://github.com/anthonyjeamme/fast-files.git"
 	},
 	"activationEvents": [
-		"onCommand:react-component-generator.quick-generate",
-		"onCommand:react-component-generator.custom-generate"
+		"onCommand:fast-files.quick-generate",
+		"onCommand:fast-files.custom-generate"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "react-component-generator.quick-generate",
+				"command": "fast-files.quick-generate",
 				"title": "⚡ Generate from default template"
 			},
 			{
-				"command": "react-component-generator.custom-generate",
+				"command": "fast-files.custom-generate",
 				"title": "⚙️ Generate files from template"
 			}
 		],
@@ -33,18 +33,18 @@
 			"explorer/context": [
 				{
 					"when": "explorerResourceIsFolder",
-					"command": "react-component-generator.quick-generate",
+					"command": "fast-files.quick-generate",
 					"group": "custom"
 				},
 				{
 					"when": "explorerResourceIsFolder",
-					"command": "react-component-generator.custom-generate",
+					"command": "fast-files.custom-generate",
 					"group": "custom"
 				}
 			]
 		}
 	},
-	"icon": "images/box.png",
+	"icon": "images/icon.png",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",

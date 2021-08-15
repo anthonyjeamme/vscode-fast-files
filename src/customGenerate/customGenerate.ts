@@ -5,7 +5,7 @@ import { getTargetFolderName } from '../common/utils'
 
 export const generateFromTemplate = () =>
 	vscode.commands.registerCommand(
-		'react-component-generator.custom-generate',
+		'fast-files.custom-generate',
 		async (props) => {
 
 			try {

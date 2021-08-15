@@ -4,7 +4,7 @@ import { getDefaultTemplateFolderPath, getTargetFolderName } from '../common/uti
 
 export const quickGenerate = () =>
 	vscode.commands.registerCommand(
-		'react-component-generator.quick-generate',
+		'fast-files.quick-generate',
 		async (props) => {
 
 			try {
