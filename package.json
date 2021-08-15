@@ -1,8 +1,8 @@
 {
-	"name": "react-component-generator",
-	"displayName": "React file generator",
-	"description": "React Component generator from explorer context menu",
-	"version": "0.0.4",
+	"name": "fast-files",
+	"displayName": "Fast files",
+	"description": "Generate files from your templates in one click !",
+	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -22,7 +22,11 @@
 		"commands": [
 			{
 				"command": "react-component-generator.quick-generate",
-				"title": "⚙️ Generate Component"
+				"title": "⚡ Generate from default template"
+			},
+			{
+				"command": "react-component-generator.custom-generate",
+				"title": "⚙️ Generate files from template"
 			}
 		],
 		"menus": {
@@ -30,6 +34,11 @@
 				{
 					"when": "explorerResourceIsFolder",
 					"command": "react-component-generator.quick-generate",
+					"group": "custom"
+				},
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "react-component-generator.custom-generate",
 					"group": "custom"
 				}
 			]

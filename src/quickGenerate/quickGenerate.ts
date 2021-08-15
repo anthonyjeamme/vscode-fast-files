@@ -1,46 +1,37 @@
-import { TextEncoder } from 'util'
 import * as vscode from 'vscode'
-import { generateSCSSFile } from '../common/generateSCSSFile'
-import { generateTSXFile } from '../common/generateTSXFile'
+import { generateFilesFromTemplate } from '../common/generateFromTemplate'
+import { getDefaultTemplateFolderPath, getTargetFolderName } from '../common/utils'
 
 export const quickGenerate = () =>
 	vscode.commands.registerCommand(
 		'react-component-generator.quick-generate',
 		async (props) => {
-			var enc = new TextEncoder()
 
-			const componentName = vscode.workspace
-				.asRelativePath(props)
-				.split('/')
-				.slice(-1)[0]
+			try {
+				const targetFolderPath = props.fsPath
+				const targetFolderName = getTargetFolderName(props)
+				const templateFolderPath = await getDefaultTemplateFolderPath()
 
-			let folder = props.fsPath
 
-			const tsxFile = vscode.Uri.file(`${folder}/${componentName}.tsx`)
-			const scssFile = vscode.Uri.file(`${folder}/${componentName}.scss`)
+				if (!templateFolderPath) {
+					throw new Error(
+						`No default template set yet. Please edit your settings.json file and add 
+						"generate-react-components": { "default-template": "nameofyourtemplatefolder" }`
+					)
+				}
 
-			await vscode.workspace.fs.writeFile(
-				tsxFile,
-				enc.encode(
-					generateTSXFile(componentName, {
-						includeSCSS: true,
-						structure: 'with return',
-						includeTypescript: false
-					})
+				await generateFilesFromTemplate(
+					templateFolderPath,
+					targetFolderPath,
+					targetFolderName
 				)
-			)
 
-			await vscode.workspace.fs.writeFile(
-				scssFile,
-				enc.encode(generateSCSSFile(componentName))
-			)
 
-			const doc = await vscode.workspace.openTextDocument(tsxFile)
+			} catch (error) {
+				vscode.window.showErrorMessage(
+					error.message
+				)
+			}
 
-			vscode.window.showTextDocument(doc)
-
-			vscode.window.showInformationMessage(
-				`Component ${componentName} created.`
-			)
 		}
 	)
