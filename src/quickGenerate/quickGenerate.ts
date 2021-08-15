@@ -16,7 +16,7 @@ export const quickGenerate = () =>
 				if (!templateFolderPath) {
 					throw new Error(
 						`No default template set yet. Please edit your settings.json file and add 
-						"generate-react-components": { "default-template": "nameofyourtemplatefolder" }`
+						"fast-files": { "default-template": "nameofyourtemplatefolder" }`
 					)
 				}
 

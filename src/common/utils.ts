@@ -15,7 +15,7 @@ export const getTemplatesFolderPath = async () => {
 
     const rootPath = vscode.workspace.workspaceFolders[0].uri.path
 
-    return `${rootPath}/.vscode/generate-react-components/templates`
+    return `${rootPath}/.vscode/fast-files/templates`
 }
 
 export const getDefaultTemplateFolderPath = async () => {
@@ -23,7 +23,7 @@ export const getDefaultTemplateFolderPath = async () => {
 
     const defaultTemplate =
         vscode.workspace
-            .getConfiguration("generate-react-components")
+            .getConfiguration("fast-files")
             .get('default-template')
 
     if (!defaultTemplate) {
